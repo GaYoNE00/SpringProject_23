@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Portfolio</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+    .split {
+      height: 100%;
+      width: 50%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .left {
+      left: 0;
+      /*background-color: #111;*/
+    }
+    .right {
+      right: 0;
+      background-color: #fff;
+    }
+    .centered {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+    }
+    .button {
+      display: block; /* 블록 레벨 요소로 만들어 너비 전체를 사용하게 합니다. */
+      width: 100%; /* 부모 요소의 전체 너비를 차지합니다. */
+      padding: 20px; /* 버튼 내부의 상하좌우 여백을 줍니다. */
+      margin: 0; /* 버튼 사이의 간격을 없앱니다. */
+      font-size: 1.5em; /* 글씨 크기를 조정합니다. */
+      background-color: #f2f2f2; /* 버튼의 배경색을 설정합니다. */
+      color: #333; /* 글씨 색을 설정합니다. */
+      border: none; /* 테두리를 없앱니다. */
+      text-align: center; /* 텍스트를 중앙으로 정렬합니다. */
+      transition: background-color 0.3s, color 0.3s; /* 배경색과 글씨 색 변화에 애니메이션을 적용합니다. */
+      border-bottom: 1px solid #ccc; /* 버튼과 버튼 사이에 경계선을 추가합니다. */
+    }
+    .button:hover {
+      background-color: #ddd; /* 호버 시의 배경색을 변경합니다. */
+      color: #000; /* 호버 시의 글씨 색을 변경합니다. */
+    }
+    /* 마지막 버튼의 하단 경계선은 없앱니다. */
+    .button:last-child {
+      border-bottom: none;
+    }
+
+    /* 버튼을 감싸는 부모 요소의 패딩을 조정하여 버튼들이 꽉 차 보이게 합니다. */
+    .right {
+      padding: 0; /* 오른쪽 영역의 패딩을 제거합니다. */
+      display: flex; /* Flexbox 레이아웃을 적용합니다. */
+      flex-direction: column; /* 자식 요소들을 세로로 정렬합니다. */
+      height: 100vh; /* 뷰포트의 전체 높이를 차지하도록 합니다. */
+    }
+    body {
+      background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    }
+    .circle {
+      height: 400px;
+      width: 400px;
+      border-radius: 50%;
+      border: 1px solid gray;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+    .earth {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 100px 100px, blue, #eee);
+      animation: earth-rotate 5s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .sun {
+      display: block;
+      background: black;
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background: radial-gradient(circle at 100px 100px, yellow, #000);
+    }
+
+    .solar-system {
+      width: 1000px;
+      heigth: 1000px;
+    }
+
+    .moon {
+      height: 5px;
+      width: 5px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 100px 100px, green, #fff);
+      animation: moon-rotate 2s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    @keyframes earth-rotate {
+      from {
+        transform: rotate(0deg) translateX(200px) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+      }
+    }
+
+    @keyframes moon-rotate {
+      from {
+        transform: rotate(0deg) translateX(40px) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translateX(40px) rotate(-360deg);
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="split left">
+  <div class="solar-system">
+    <div class="circle"></div>
+    <div class="sun">
+      <div class="earth">
+        <div class="moon">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="centered">
+    Can Do Anything
+  </div>
+
+</div>
+<a-scene>
+  <a-camera position='0 0 3' user-height='0'></a-camera>
+  <a-sphere src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg" radius="1.5" segments-height="53">
+    <a-animation attribute="rotation"
+                 dur="10000"
+                 fill= "forwards"
+                 to="0 360 0"
+                 easing="linear"
+                 repeat="indefinite"></a-animation>
+  </a-sphere>
+  <a-sky segments-height="100" segments-width="100"  src="https://1.bp.blogspot.com/-4CHlBxsvQ_0/UrxJVGBY_tI/AAAAAAAAAWo/OK14DV9oCaQ/s1600/Christmas+Sky+Full+Of+Stars.jpg" color="#555" rotation="0 -90 0"></a-sky>
+</a-scene>
+<div class="split right">
+  <button class="button" onclick="window.location.href='URL1';">Button 1</button>
+  <button class="button" onclick="window.location.href='URL2';">Buttosnasd 2</button>
+  <button class="button" onclick="window.location.href='URL3';">Button 3</button>
+</div>
+
+<script>
+  // You can add your JavaScript for hover animations here
+</script>
+
+</body>
+</html>

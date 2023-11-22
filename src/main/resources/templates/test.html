@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>TEST</title>
 </head>
 <body>
-$END$
+<style>
+    body {
+        background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    }
+    .circle {
+        height: 400px;
+        width: 400px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+    .earth {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 100px 100px, blue, #eee);
+        animation: earth-rotate 5s linear infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .sun {
+        display: block;
+        background: black;
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        background: radial-gradient(circle at 100px 100px, yellow, #000);
+    }
+
+    .solar-system {
+        width: 1000px;
+        heigth: 1000px;
+    }
+
+    .moon {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 100px 100px, green, #fff);
+        animation: moon-rotate 2s linear infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    @keyframes earth-rotate {
+        from {
+            transform: rotate(0deg) translateX(200px) rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg) translateX(200px) rotate(-360deg);
+        }
+    }
+
+    @keyframes moon-rotate {
+        from {
+            transform: rotate(0deg) translateX(40px) rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg) translateX(40px) rotate(-360deg);
+        }
+    }
+</style>
+<div class="solar-system">
+    <div class="circle"></div>
+    <div class="sun">
+        <div class="earth">
+            <div class="moon">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
