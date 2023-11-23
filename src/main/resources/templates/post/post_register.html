@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/postregitster.css">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <script>$(document).ready(function() {
+        $('#summernote').summernote();
+    });</script>
+
+</head>
+<body>
+<style>
+
+</style>
+<div class="solar-system">
+    <div class="register-top">
+        <h1>게시물 작성하기</h1>
+    </div>
+    <div class="register-middle">
+        <div class="content-area">
+            <div id="title" aria-placeholder="제목을 입력하세요" contenteditable="true" style="border: 1px solid #ccc; min-height: 30px; padding: 5px;"></div>
+            <div id="summernote" aria-placeholder="내용을 입력하세요"></div>
+        </div>
+    </div>
+</div>
+<div class="register-bottom">
+    <div class="button-area">
+        <button class="button" onclick="location.href='/post/register'">등록</button>
+        <button class="button" onclick="location.href='/'">취소</button>
+    </div>
+</body>
+</html>
