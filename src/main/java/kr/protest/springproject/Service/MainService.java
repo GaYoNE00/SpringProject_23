@@ -1,5 +1,8 @@
 package kr.protest.springproject.Service;
 
-public class MainService {
+import kr.protest.springproject.DTO.UserDTO;
+import kr.protest.springproject.Entity.UsersEntity;
+
+public interface MainService {
 
 }
