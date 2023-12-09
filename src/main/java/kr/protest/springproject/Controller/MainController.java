@@ -2,11 +2,24 @@ package kr.protest.springproject.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import kr.protest.springproject.DTO.UserDTO;
+import kr.protest.springproject.Service.MemberService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequiredArgsConstructor
 public class MainController {
+
+    @Autowired
+    private final MemberService memberService;
+
     @RequestMapping("/")
     public String index(){
         System.out.println("index");
@@ -22,11 +35,17 @@ public class MainController {
         System.out.println("login");
         return "member/login";
     }
-    @RequestMapping("/login_check")
-    public String login_check(UserDTO dto, HttpServletRequest request){
+    @PostMapping("/login_check")
+    @ResponseBody
+    public ResponseEntity<?> login_check(@RequestParam String userName, @RequestParam String userPassword) {
 
+        boolean result = memberService.login_check(userName,userPassword);;
 
-        return "";
+        if (result) {
+            return ResponseEntity.ok().body("로그인 성공");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패");
+        }
     }
 
     @RequestMapping("/login_success")

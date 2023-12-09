@@ -30,7 +30,7 @@ spring:
 
 
   #################################
-  # MySQL Setting
+  # SQL Setting
   #################################
   datasource:
     driver-class-name: org.postgresql.Driver

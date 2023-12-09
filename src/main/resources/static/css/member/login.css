@@ -1,0 +1,69 @@
+/* 기본 설정 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2; /* 부드러운 배경 색 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 로그인 래퍼 */
+.login-wrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+/* 폼 스타일 */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 체크박스와 라벨 */
+label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* 로그인 버튼 */
+input[type="submit"] {
+    background-color: #4CAF50; /* 대조적인 색상 */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .login-wrapper {
+        width: 80%;
+    }
+}

@@ -3,35 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../../static/css/member/member.css">
-    <script>
-        function login(){
 
-            $.ajax({
-                url:"/login_check",
-                type:"POST",
-                success:function(result){
-                    if(result=="suceess"){
-                        alert("로그인 성공");
-                    }else{
-                        alert("비밀번호가 틀렸습니다.");
-                    }
-                }
-            });
-        }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    </script>
 </head>
 <body>
+<script src="/js/member/login.js"></script>
+<link rel="stylesheet" tpye="text/css" href="/css/member/login.css">
 <div class="login-wrapper">
     <h2>Login</h2>
-
-        <input type="text" name="userName" placeholder="Email">
-        <input type="password" name="userPassword" placeholder="Password">
-        <label for="remember-check">
-            <input type="checkbox" id="remember-check">아이디 저장하기
-        </label>
-        <input type="submit" value="Login" onclick="">
+    <form id="loginForm" onsubmit="return login()">
+        <input type="text" id="uid" name="userName" placeholder="Email" required>
+        <input type="password" id="upw" name="userPassword" placeholder="Password" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
 
 </div>
 </body>
